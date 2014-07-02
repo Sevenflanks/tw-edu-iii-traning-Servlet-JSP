@@ -1,0 +1,13 @@
+﻿<?xml version='1.0' encoding='utf-8'?> 
+<Context displayName="JSP Servlet Exercise" docBase="JspTrainingTask" path="/JspTrainingTask" reloadable="true">
+  <!--  請注意，此標籤的寫法不能用於 tomcat 5.x     -->
+  <!--                  SQLServer 2005                  -->
+  <Resource name="jdbc/LBRtest" type="javax.sql.DataSource"
+      username="sa" password="passw0rd"
+      driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+      url="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=LBRtest"    
+      maxActive="8"
+      maxIdle="4"
+      maxWait="5000"
+  />  
+</Context>
