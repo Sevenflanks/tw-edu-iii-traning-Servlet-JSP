@@ -12,6 +12,7 @@ body {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: 80% center;
+	background-attachment:fixed;
 }
 
 .mainClass1 {
