@@ -22,20 +22,18 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		request.setAttribute("type", request.getParameter("submit"));
-		request.setAttribute("userID", request.getParameter("acoount"));
-		request.setAttribute("userPWD", request.getParameter("password"));
-		request.setAttribute("userEmail", request.getParameter("email"));
-		
+
+		//輸入資料
 		String type = request.getParameter("submit");
 		String userID = request.getParameter("acoount");
-		String userPWD = GlobalService.getMD5Endocing(request.getParameter("password"));
+		String userPWD = GlobalService.getMD5Endocing(request.getParameter("password"));//輸入的密碼進行MD5轉換
 		String userEmail = request.getParameter("email");
 		
 		UserDAO userDAO = new UserDAO();
 		
-		//錯誤訊息的處理
+		//驗證資料
 		HashMap<String, String> errorMSG = new HashMap<String, String>();
+		request.setAttribute("errorMSG", errorMSG);
 		
 		//註冊的場合
 		if (type.equals("提交")) {
@@ -62,10 +60,8 @@ public class LoginServlet extends HttpServlet {
 			}
 		}
 		
-		if (!errorMSG.isEmpty()) {
-			request.setAttribute("errorMSG", errorMSG);
-			RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
-			rd.forward(request, response);
+		if (errorMSG!=null&&!errorMSG.isEmpty()) {
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 			return;
 		}
 		
@@ -78,8 +74,12 @@ public class LoginServlet extends HttpServlet {
 			System.out.println("寫入完畢");
 		}
 		
-		RequestDispatcher rd = request.getRequestDispatcher("responseTest.jsp");
-		rd.forward(request, response);
+		request.setAttribute("type", request.getParameter("submit"));
+		request.setAttribute("userID", request.getParameter("acoount"));
+		request.setAttribute("userPWD", request.getParameter("password"));
+		request.setAttribute("userEmail", request.getParameter("email"));
+		
+		request.getRequestDispatcher("responseTest.jsp").forward(request, response);
 		
 	}
 

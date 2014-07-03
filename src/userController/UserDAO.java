@@ -150,7 +150,6 @@ public class UserDAO {
 			this.getConnection();
 			stmt = conn.prepareStatement(INSERT_NEW_ACCOUNT);
 			stmt.setString(1, user.getAccount());
-			
 			stmt.setString(2, user.getPassword());
 			stmt.setString(3, user.getEmail());
 			result = stmt.executeUpdate();

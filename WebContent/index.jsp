@@ -91,7 +91,7 @@ body {
 			<input type="button" class="button" value="Enter" onclick="location.href='login.jsp'">
 			</div>
 			<div class="box2">
-			<label class="textType2">Copyright © 2014 ESAA Rhys.Chang<br/>All rights reserved.</label> 
+			<label class="textType2">Copyright © 2014 III-CECJ05 Rhys.C<br/>All rights reserved.</label> 
 			</div>
 		</div>
 	</div>
