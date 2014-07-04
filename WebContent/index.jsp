@@ -89,7 +89,7 @@ body {
 			</label> 
 			</div>
 			<div class="box2">
-			<input type="button" class="button" value="Enter" onclick="location.href='login.jsp'">
+			<input type="button" class="button" value="Enter" onclick="location.href='utility/login.jsp'">
 			</div>
 			<div class="box2">
 			<label class="textType2">Copyright © 2014 III-CECJ05 Rhys.C<br/>All rights reserved.</label> 

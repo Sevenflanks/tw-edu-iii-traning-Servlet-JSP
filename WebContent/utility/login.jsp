@@ -9,7 +9,7 @@
 
 <style>
 body {
-	background-image: url("images/SKHN-LOGO-Mark2-B-Side-1920-1081.png");
+	background-image: url("../images/SKHN-LOGO-Mark2-B-Side-1920-1081.png");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: 80% center;
@@ -193,7 +193,7 @@ body {
 
 </head>
 <body>
-	<form action="<c:url value='/login.do'/>" method="POST">
+	<form action="<c:url value='/utility/login.do'/>" method="POST">
 		<div class="formStyle1" id="idForm">
 			<div class="divBlock1">
 				<div class="title">名稱:</div>

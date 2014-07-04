@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sun.javafx.collections.MappingChange.Map;
 
@@ -22,7 +23,8 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-
+		HttpSession session = request.getSession();
+		
 		//輸入資料
 		String type = request.getParameter("submit");
 		String userID = request.getParameter("acoount");
@@ -78,6 +80,13 @@ public class LoginServlet extends HttpServlet {
 		request.setAttribute("userID", request.getParameter("acoount"));
 		request.setAttribute("userPWD", request.getParameter("password"));
 		request.setAttribute("userEmail", request.getParameter("email"));
+		
+		if (type.equals("登入")) {
+			session.setAttribute("LoginOK", userID);
+			request.getRequestDispatcher("/utility/about.jsp").forward(request, response);
+			return;
+		}
+		
 		
 		request.getRequestDispatcher("responseTest.jsp").forward(request, response);
 		

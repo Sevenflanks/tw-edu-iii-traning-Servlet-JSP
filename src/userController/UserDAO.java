@@ -60,8 +60,9 @@ public class UserDAO {
 			this.getConnection();
 			stmt = conn.prepareStatement(SELECT_ALL);
 			rset = stmt.executeQuery();
-			if (rset.next()) {
-				UserBean user = new UserBean(); 
+			UserBean user;
+			while (rset.next()) {
+				user = new UserBean(); 
 				user.setId(rset.getString(1));
 				user.setAccount(rset.getString(2));
 				user.setPassword(rset.getString(3));
