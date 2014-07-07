@@ -31,7 +31,12 @@ public class editUserInfo extends HttpServlet {
 
 		String userAccount = request.getParameter("userAccount");
 		String userEamil = request.getParameter("userEmail");
-		String userNewPWD = GlobalService.getMD5Endocing(request.getParameter("userNewPWD"));
+		String userNewPWD;
+		if (request.getParameter("userNewPWD").trim().length() != 0) {
+			userNewPWD = GlobalService.getMD5Endocing(request.getParameter("userNewPWD"));
+		} else {
+			userNewPWD = "";
+		}
 		String userPWD = GlobalService.getMD5Endocing(request.getParameter("userPWD"));
 		
 		System.out.println("使用者修改資料");
