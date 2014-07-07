@@ -92,16 +92,23 @@ body {
 			</div>
 			<div>
 				<div class="textTitle" >帳號：</div>
-				<input type="text" readonly="readonly" value="${user.account }" >
+				<input type="text" name="userAccount" readonly="readonly" readonly="readonly" value="${user.account }" >
+			</div>
+			<div>
+				<div class="textTitle" >新密碼：</div>
+				<input type="password" name="userNewPWD" placeholder="請輸入新密碼">
+				<label>${errorMSG.newPwdError }</label>
 			</div>
 			<div>
 				<div class="textTitle" >Email：</div>
-				<input type="text" value="${user.email }">
+				<input type="text" name="userEmail" value="${user.email }">
+				<label>${errorMSG.emailError }</label>
 			</div>
 			<br/>
 			<div>
-				<div class="textTitle" >密碼：</div>
-				<input type="text" placeholder="請輸入密碼" required>
+				<div class="textTitle" >原密碼：</div>
+				<input type="password" name="userPWD" placeholder="請輸入原密碼" required>
+				<label>${errorMSG.pwdError }</label>
 			</div>
 			<div>
 				<div class="textTitle" ></div>

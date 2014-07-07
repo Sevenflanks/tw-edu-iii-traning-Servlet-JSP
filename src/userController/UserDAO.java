@@ -183,5 +183,75 @@ public class UserDAO {
 		}
 		return result;
 	}
-
+	
+	public int update(UserBean user) {
+		StringBuilder sb = new StringBuilder("UPDATE Member set ");
+		int element = 0;
+		boolean hasEamil = false;
+		boolean hasPassword = false;
+		if (user.getEmail() != null && user.getEmail().trim().length() != 0) {
+			sb.append("userEmail=?");
+			element++;
+			hasEamil = true;
+		}
+		
+		if (user.getPassword() != null && user.getPassword().trim().length() != 0) {
+			if (element > 0) {
+				sb.append(",userPassword=?");
+			}else{
+				sb.append("userPassword=?");
+			}
+			element++;
+			hasPassword = true;
+		}
+		sb.append(" where userAccount=?");
+		
+		String UPDATE = sb.toString();
+		
+		PreparedStatement stmt = null;
+		ResultSet rset = null;
+		int result = 0;
+		try {
+			this.getConnection();
+			stmt = conn.prepareStatement(UPDATE);
+			if (hasEamil) {
+				stmt.setString(1, user.getEmail());
+			}
+			
+			if (hasPassword) {
+				stmt.setString(element, user.getPassword());
+			}
+			
+			element++;
+			stmt.setString(element, user.getAccount());
+			
+			result = stmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (rset != null) {
+				try {
+					rset.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (stmt != null) {
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return result;
+	}
+	
 }

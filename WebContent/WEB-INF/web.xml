@@ -39,4 +39,14 @@
     <servlet-name>getUserInfo</servlet-name>
     <url-pattern>/utility/getUserInfo</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>editUserInfo</display-name>
+    <servlet-name>editUserInfo</servlet-name>
+    <servlet-class>userController.editUserInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>editUserInfo</servlet-name>
+    <url-pattern>/utility/editUserDetail</url-pattern>
+  </servlet-mapping>
 </web-app>
