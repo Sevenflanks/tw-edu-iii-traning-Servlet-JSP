@@ -62,7 +62,11 @@ public class LoginServlet extends HttpServlet {
 			}
 		}
 		
+		//有任何錯誤的場合
 		if (errorMSG!=null&&!errorMSG.isEmpty()) {
+			//丟回以輸入的內容
+			request.setAttribute("userID", userID);
+			request.setAttribute("userEmail", userEmail);
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 			return;
 		}

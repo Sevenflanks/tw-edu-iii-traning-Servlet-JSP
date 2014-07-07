@@ -198,7 +198,7 @@ body {
 			<div class="divBlock1">
 				<div class="title">名稱:</div>
 				<input type="text" name="acoount" size="30" placeholder="請輸入帳號"
-					autocomplete="off" required> <label class="errorMsg"
+					autocomplete="off" value="${userID }" required> <label class="errorMsg"
 					id="errorAccount">${errorMSG.accountError}</label>
 			</div>
 			<div class="divBlock1">
@@ -224,7 +224,7 @@ body {
 				<div class="divBlock1">
 					<div class="title">Email:</div>
 					<input type="text" name="email" id="idEmail"
-						placeholder="ex:example@xxxxx.com" size="50" autocomplete="off">
+						placeholder="ex:example@xxxxx.com" size="50"  value="${userEmail }" autocomplete="off">
 					<label class="errorMsg" id="errorEmail"></label>
 				</div>
 				<div class="buttonPage">

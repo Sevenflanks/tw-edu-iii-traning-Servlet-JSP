@@ -5,9 +5,9 @@
   <Resource name="jdbc/LBRtest" type="javax.sql.DataSource"
       username="sa" password="passw0rd"
       driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-      url="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=LBRtest"    
-      maxActive="8"
-      maxIdle="4"
+      url="jdbc:sqlserver://localhost:1433;DatabaseName=LBRtest"    
+      maxActive="20"
+      maxIdle="10"
       maxWait="5000"
   />  
 </Context>

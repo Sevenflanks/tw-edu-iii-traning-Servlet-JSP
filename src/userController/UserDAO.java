@@ -1,7 +1,6 @@
 package userController;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +10,6 @@ import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 public class UserDAO {
@@ -21,11 +19,12 @@ public class UserDAO {
 	private final String SELECT_ALL = "SELECT * FROM Member";
 	private final String SELECT_BY_ACCOUNT = "SELECT * FROM Member WHERE userAccount = ?";
 	private final String INSERT_NEW_ACCOUNT = "INSERT INTO Member VALUES(?, ?, ?, getdate())";
+
 	
 //	private void getConnection(){
 //		try {
 //			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-//			conn = DriverManager.getConnection("jdbc:sqlserver://127.0.0.1:1433;DatabaseName=LBRtest","sa", "passw0rd");
+//			conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;DatabaseName=LBRtest","sa", "passw0rd");
 //		} catch (ClassNotFoundException e) {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
@@ -37,9 +36,11 @@ public class UserDAO {
 
 	public UserDAO(){
 		try {
+			
 			Context context = new InitialContext();
 			ds = (DataSource) context.lookup("java:comp/env/jdbc/LBRtest");
-		} catch (NamingException e) {
+			
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -51,7 +52,7 @@ public class UserDAO {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public List<UserBean> findAll() {
 		List<UserBean> users = new ArrayList<UserBean>();
 		PreparedStatement stmt = null;
