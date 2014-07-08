@@ -85,9 +85,6 @@
 		document.getElementById('idTopButtom3').onmousemove = function() {
 			trackMouse(200);
 		};
-		document.getElementById('idTopButtom4').onmousemove = function() {
-			trackMouse(300);
-		};
 		document.getElementById('idTopList').onmouseleave = function() {
 			trackBack(sessionStorage.posBack);
 		};
@@ -100,9 +97,6 @@
 		};
 		document.getElementById('idTopButtom3').onclick = function() {
 			pageChange(3);
-		};
-		document.getElementById('idTopButtom4').onclick = function() {
-			pageChange(4);
 		};
 		var k = document.getElementById('idTopScan');
 		k.style.left = sessionStorage.posBack + 'px';
@@ -130,9 +124,6 @@
 			document.location.href = "getUserInfo"
 		}
 		if (pageNumber == 3) {
-			document.location.href = "gallery.jsp"
-		}
-		if (pageNumber == 4) {
 			document.location.href = "about.jsp"
 		}
 	}
@@ -143,7 +134,6 @@
 		<div class="topScan" id="idTopScan"></div>
 		<div class="topButtom" id="idTopButtom1">所有會員</div>
 		<div class="topButtom" id="idTopButtom2">詳細資料</div>
-		<div class="topButtom" id="idTopButtom3">相簿</div>
-		<div class="topButtom" id="idTopButtom4">關於本站</div>
+		<div class="topButtom" id="idTopButtom3">關於本站</div>
 	</div>
 </div>

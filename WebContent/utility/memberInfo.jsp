@@ -75,6 +75,13 @@ body {
 	border: 1px solid #EF8710;
 	background: #ffb76b;
 }
+
+.errorMsg{
+	font-size: 12px;
+	color: white;
+	padding: 1px 3px;
+	text-shadow: 0px 0px 10px #000000;
+}
 </style>
 
 <script>
@@ -88,31 +95,32 @@ body {
 		<form action="<c:url value='/utility/editUserDetail'/>">
 			<div>
 				<div class="textTitle">使用者ID：</div>
-				<input type="text" readonly="readonly" value="${user.id}">
+				<input type="text" readonly="readonly" value="${user.id}" style="color:gray">
 			</div>
 			<div>
 				<div class="textTitle" >帳號：</div>
-				<input type="text" name="userAccount" readonly="readonly" readonly="readonly" value="${user.account }" >
+				<input type="text" name="userAccount" readonly="readonly" readonly="readonly" value="${user.account }" style="color:gray">
 			</div>
 			<div>
 				<div class="textTitle" >新密碼：</div>
 				<input type="password" name="userNewPWD" placeholder="請輸入新密碼">
-				<label>${errorMSG.newPwdError }</label>
+				<label class="errorMsg">${errorMSG.newPwdError }</label>
 			</div>
 			<div>
 				<div class="textTitle" >Email：</div>
 				<input type="text" name="userEmail" value="${user.email }">
-				<label>${errorMSG.emailError }</label>
+				<label class="errorMsg">${errorMSG.emailError }</label>
 			</div>
 			<br/>
 			<div>
 				<div class="textTitle" >原密碼：</div>
 				<input type="password" name="userPWD" placeholder="請輸入原密碼" required>
-				<label>${errorMSG.pwdError }</label>
+				<label class="errorMsg">${errorMSG.pwdError }</label>
 			</div>
 			<div>
 				<div class="textTitle" ></div>
-				<input type="submit" class="button" value="修改">
+				<input type="submit" class="button" value="修改資料">
+				<label class="errorMsg">${modify }</label>
 			</div>
 		</form>
 	</div>

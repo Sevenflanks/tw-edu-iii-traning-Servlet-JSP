@@ -30,12 +30,15 @@ body {
 </style>
 
 <script>
-	sessionStorage.posBack = 300;
+	sessionStorage.posBack = 200;
 </script>
 
 </head>
 <body>
 	<jsp:include page="main.jsp"></jsp:include>
-
+	<div class="infoClass1">
+		<label>JSP課後練習</label><br>
+		<label>Build by CECJ05-25 張鼎鑫</label>
+	</div>
 </body>
 </html>

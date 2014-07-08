@@ -69,7 +69,7 @@ public class editUserInfo extends HttpServlet {
 		}
 		
 		if (errors!=null&&!errors.isEmpty()) {
-			request.getRequestDispatcher("memberInfo.jsp").forward(request, response);
+			request.getRequestDispatcher("getUserInfo").forward(request, response);
 			return;
 		}
 		
@@ -80,7 +80,7 @@ public class editUserInfo extends HttpServlet {
 		//修改資料
 		
 		dao.update(user);
-		
+		request.setAttribute("modify", "修改成功!");
 		request.getRequestDispatcher("getUserInfo").forward(request, response);
 		
 		
